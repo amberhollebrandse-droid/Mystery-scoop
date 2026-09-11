@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mystery Scoop ♡</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff7fb,#f4f1ff);color:#493c52}
+header{padding:18px;text-align:center;background:#fff9fe;position:sticky;top:0;z-index:2;border-bottom:2px solid #f0dff0}
+h1{margin:0;color:#c56ab0;font-size:30px}.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.stat{background:#fff;border:2px solid #eadbea;border-radius:18px;padding:7px 12px}
+main{max-width:900px;margin:auto;padding:18px}.card{background:#ffffffdd;border:2px solid #eadfea;border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:0 5px 20px #d9c8df55}
+button{border:0;border-radius:18px;padding:13px 18px;background:#d984bd;color:white;font-weight:700;font-size:16px;cursor:pointer;margin:5px}
+button.secondary{background:#a895d9}.hidden{display:none}.customer{font-size:18px;line-height:1.5}.prefs{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:14px;background:#f7e8f5}
+.scoopArea{text-align:center}.jar{min-height:150px;border-radius:28px;background:#f3e9f2;border:4px solid #dfc7dc;padding:15px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px}
+.bead{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;border:3px solid #fff;box-shadow:0 3px 8px #0002;user-select:none}
+.green{background:#9bdc9c}.yellow{background:#ffe68b}.red{background:#f59a9a}.purple{background:#c9a5e8}.blue{background:#91c9f5}.diamond{background:#c8e7ff}.pink{background:#f4a8d4}.gold{background:#ffe08a}
+.scoopCount{font-size:20px;margin:10px}.board{min-height:180px;background:#fff8d9;border:4px solid #e8d39b;border-radius:24px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+.board .bead{cursor:grab}.empty{width:100%;text-align:center;color:#9b8c9b;padding:30px}
+.inventory{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.item{background:#fff;border:2px solid #eadfea;border-radius:18px;padding:12px;text-align:center}
+.pack{min-height:180px;border:4px dashed #d9bad5;border-radius:24px;padding:15px;display:flex;gap:10px;flex-wrap:wrap;background:#fff9fd}.pack .item{cursor:pointer}
+.small{font-size:13px;color:#806f80}.result{text-align:center;font-size:20px;padding:15px}
+</style>
+</head>
+<body>
+<header><h1>🌸 Mystery Scoop 🌸</h1><div class="stats"><span class="stat">🪙 Coins: <b id="coins">50</b></span><span class="stat">⭐ XP: <b id="xp">0</b></span><span class="stat">🧺 Unlocked: <b id="unlocked">5</b></span></div></header>
+<main>
+<section id="start" class="card">
+<h2>Welcome to your Mystery Scoop Shop! 🥄</h2>
+<p>Make cute mystery orders, scoop 6–7 beads at a time, sort them after all scoops, and pack every prize carefully. There is <b>no time limit</b>. 💕</p>
+<button onclick="newOrder()">Start Order ✨</button>
+</section>
+
+<section id="order" class="card hidden">
+<h2>🧑‍💼 Customer Order</h2><div id="customer" class="customer"></div>
+<div class="scoopArea"><h3>🥄 Scoop from the jar</h3><div class="scoopCount">Scoop <b id="currentScoop">0</b> / <b id="maxScoops">0</b></div>
+<div id="jar" class="jar"></div><button id="scoopBtn" onclick="scoop()">Scoop 6–7 Beads 🥄</button></div>
+<h3>Beads collected</h3><div id="board" class="board"><div class="empty">Your scooped beads will appear here.</div></div>
+<div id="after" class="hidden"><button onclick="startSorting()">All scoops done — Sort the Beads 🌈</button></div>
+</section>
+
+<section id="sort" class="card hidden"><h2>🌈 Sort Your Beads</h2><p>Tap a bead to reveal what object it represents, then place the matching prize into the packing area. Sorting only starts after all scoops are complete.</p><div id="sortBoard" class="board"></div><h3>📦 Packing box</h3><div id="pack" class="pack"><div class="empty">Tap products below to place them in the box.</div></div><button onclick="finishOrder()">Finish Packing 💝</button></section>
+
+<section id="finish" class="card hidden"><div id="result" class="result"></div><button onclick="newOrder()">Next Customer 🛍️</button></section>
+
+<section class="card"><h2>🔮 Bead Collection</h2><div class="inventory" id="collection"></div></section>
+</main>
+<script>
+const beads=[
+{id:"pen",shape:"●",cls:"green",rarity:"Common",object:"Green Pen",emoji:"🖊️",weight:42},
+{id:"scrunchie",shape:"★",cls:"yellow",rarity:"Common",object:"Yellow Scrunchie",emoji:"🎀",weight:30},
+{id:"notes",shape:"♥",cls:"red",rarity:"Common",object:"Red Sticky Notes / Notebook",emoji:"📓",weight:24},
+{id:"stickers",shape:"✿",cls:"purple",rarity:"Common",object:"Purple Sticker Pack",emoji:"🌸",weight:18},
+{id:"keychain",shape:"🦋",cls:"blue",rarity:"Uncommon",object:"Blue Butterfly Keychain",emoji:"🔑",weight:10},
+{id:"squishie",shape:"◆",cls:"diamond",rarity:"Rare",object:"Blue & White Squishie",emoji:"🧸",weight:6},
+{id:"extra",shape:"🎀",cls:"pink",rarity:"Epic",object:"Extra Scoop",emoji:"🥄",weight:3},
+{id:"dealer",shape:"♛",cls:"gold",rarity:"Legendary",object:"Dealer's Choice",emoji:"👑",weight:1}
+];
+let coins=50,xp=0,order=null,collected=[],scoopNo=0;
+
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function weighted(){let total=beads.reduce((a,b)=>a+b.weight,0),r=Math.random()*total;for(const b of beads){r-=b.weight;if(r<=0)return b}return beads[0]}
+function newOrder(){
+ order={name:pick(["Mia","Luna","Sophie","Emma","Chloe","Ava"]),scoops:1+Math.floor(Math.random()*10),color:pick(["pink","purple","blue","green","yellow"]),theme:pick(["Cute Animals","Flowers","Stars","Kawaii","Pastel"])};
+ collected=[];scoopNo=0;document.getElementById("start").classList.add("hidden");document.getElementById("finish").classList.add("hidden");document.getElementById("sort").classList.add("hidden");document.getElementById("order").classList.remove("hidden");
+ document.getElementById("maxScoops").textContent=order.scoops;document.getElementById("currentScoop").textContent=0;
+ document.getElementById("customer").innerHTML=`<b>${order.name}</b> wants <b>${order.scoops} scoop${order.scoops>1?"s":""}</b>.<div class="prefs"><span class="pill">🎨 Color: ${order.color}</span><span class="pill">✨ Theme: ${order.theme}</span></div><p class="small">The customer chooses the number of scoops — you don't. Every scoop contains 6–7 beads.</p>`;
+ document.getElementById("board").innerHTML='<div class="empty">Your scooped beads will appear here.</div>';document.getElementById("after").classList.add("hidden");document.getElementById("scoopBtn").disabled=false;
+}
+function scoop(){
+ if(scoopNo>=order.scoops)return;
+ scoopNo++;let n=6+Math.floor(Math.random()*2);
+ for(let i=0;i<n;i++)collected.push(weighted());
+ document.getElementById("currentScoop").textContent=scoopNo;renderBoard();
+ if(scoopNo===order.scoops){document.getElementById("scoopBtn").disabled=true;document.getElementById("after").classList.remove("hidden")}
+}
+function beadHTML(b,i,clickable=false){return `<div class="bead ${b.cls}" ${clickable?`onclick="reveal(${i})"`:""} title="${b.rarity}">${b.shape}</div>`}
+function renderBoard(){document.getElementById("board").innerHTML=collected.map((b,i)=>beadHTML(b,i)).join("")}
+function startSorting(){
+ document.getElementById("order").classList.add("hidden");document.getElementById("sort").classList.remove("hidden");document.getElementById("sortBoard").innerHTML=collected.map((b,i)=>beadHTML(b,i,true)).join("");
+ document.getElementById("pack").innerHTML='<div class="empty">Reveal beads to see the prizes.</div>';
+}
+let revealed=[];
+function reveal(i){
+ if(revealed.includes(i))return;revealed.push(i);let b=collected[i];
+ let prize=document.createElement("div");prize.className="item";prize.innerHTML=`<b>${b.emoji} ${b.object}</b><br><span class="small">${b.rarity} bead</span>`;
+ prize.onclick=()=>{let empty=document.querySelector("#pack .empty");if(empty)empty.remove();document.getElementById("pack").appendChild(prize);};
+ document.getElementById("sortBoard").children[i].style.opacity=".35";document.getElementById("pack").appendChild(prize.cloneNode(true));
+}
+function finishOrder(){
+ if(revealed.length<collected.length){alert("Reveal all your beads first! 💕");return}
+ let legendary=collected.some(b=>b.id==="dealer"),epic=collected.some(b=>b.id==="extra");
+ let earned=10+collected.length*2+revealed.length; if(legendary)earned+=20;if(epic)earned+=10;
+ coins+=earned;xp+=collected.length;document.getElementById("coins").textContent=coins;document.getElementById("xp").textContent=xp;
+ document.getElementById("sort").classList.add("hidden");document.getElementById("finish").classList.remove("hidden");
+ document.getElementById("result").innerHTML=`💖 <b>Order packed!</b><br>You earned 🪙 ${earned} coins and ⭐ ${collected.length} XP.<br><br>${legendary?"👑 Legendary Dealer's Choice found!":"Great job keeping the customer happy!"}${epic?"<br>🎀 Epic Extra Scoop found!":""}`;
+ renderCollection();
+}
+function renderCollection(){document.getElementById("collection").innerHTML=beads.map(b=>`<div class="item"><div class="bead ${b.cls}" style="margin:auto">${b.shape}</div><b>${b.rarity}</b><br><span class="small">${b.object}</span></div>`).join("");document.getElementById("unlocked").textContent=5}
+renderCollection();
+</script>
+</body></html>
