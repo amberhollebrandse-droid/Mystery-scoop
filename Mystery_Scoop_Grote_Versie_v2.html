@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Mystery Scoop 💗</title>
+<style>
+:root{--pink:#ffb7d5;--pink2:#ffe7f1;--purple:#bda7f5;--cream:#fffaf5;--ink:#5d4b5f;--shadow:0 10px 30px #7c557522}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff4fa,#f4efff);font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;color:var(--ink);touch-action:manipulation}
+button{font:inherit;border:0;cursor:pointer}.app{min-height:100vh;max-width:1100px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-size:27px;font-weight:900;color:#9a6590}.coins{background:#fff;border:2px solid #f4d8e7;border-radius:20px;padding:9px 14px;font-weight:800}.screen{display:none}.screen.active{display:block}.card{background:#ffffffdd;border:2px solid #f3dbe8;border-radius:28px;box-shadow:var(--shadow);padding:20px;margin-top:18px}.hero{text-align:center;padding:30px}.hero h1{font-size:48px;margin:8px 0;color:#a25f91}.hero p{font-size:18px}.btn{background:linear-gradient(135deg,#ff9fc8,#c2a9ff);color:white;padding:13px 22px;border-radius:18px;font-weight:900;box-shadow:0 6px 16px #a36a9140}.btn.secondary{background:#fff;color:#9b678f;border:2px solid #edcfdf}.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.pill{background:#fff1f7;border-radius:15px;padding:8px 12px;font-weight:800}.small{font-size:13px;opacity:.75}.customer{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center}.avatar{width:120px;height:120px;border-radius:35px;background:#ffe4ef;display:grid;place-items:center;font-size:70px}.request{display:grid;gap:7px}.request strong{color:#965b89}.beadLegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin-top:15px}.legend{background:#fff;border-radius:18px;padding:10px;text-align:center;border:2px solid #f1dce8}.bead{width:52px;height:52px;margin:auto;display:grid;place-items:center;font-size:27px;font-weight:900;filter:drop-shadow(0 5px 4px #6d526230);position:relative}.round{border-radius:50%;background:radial-gradient(circle at 32% 25%,#b9ffcf,#4fc98a 48%,#218b68)}.star{background:#ffd84f;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 94%,50% 72%,21% 94%,32% 57%,2% 35%,39% 35%)}.heart{color:#e9426e}.heart:before{content:"♥";font-size:51px;color:#ed5578;text-shadow:inset 0 0 0 #000;filter:drop-shadow(0 3px 2px #8b355033)}.flower{color:#a76bd4}.flower:before{content:"✿";font-size:54px;color:#9c62cf}.butterfly{color:#6eb6ee}.butterfly:before{content:"🦋";font-size:46px}.diamond{background:linear-gradient(135deg,#fff,#8bd6ff 45%,#fff 65%,#75bdf0);clip-path:polygon(50% 0,90% 35%,68% 100%,32% 100%,10% 35%)}.bow{color:#ff76b1}.bow:before{content:"🎀";font-size:43px}.crown{color:#d89b19}.crown:before{content:"♛";font-size:45px;color:#f5c43f;text-shadow:0 2px 2px #b37a2255}.beadBox{height:330px;position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 50% 20%,#e7d4b4,#b58a62 65%,#936a4e);border:8px solid #8e674e;box-shadow:inset 0 0 30px #4b302844}.loose{position:absolute;width:40px;height:40px;display:grid;place-items:center;user-select:none}.scoop{position:absolute;width:88px;height:115px;z-index:20;pointer-events:none;transform:translate(-50%,-70%)}.scoop .cup{width:78px;height:70px;border:7px solid #b8b8c7;border-radius:50% 50% 45% 45%;background:#eef0fa;box-shadow:inset 0 8px 8px #fff}.scoop .handle{width:18px;height:58px;background:#c8cad8;border-radius:12px;margin:auto;margin-top:-2px}.sortBoard{min-height:290px;border-radius:25px;background:repeating-linear-gradient(0deg,#ffeef7 0,#ffeef7 39px,#f9e2ef 40px),#fff;border:4px solid #e7bfd4;padding:15px;display:flex;flex-wrap:wrap;gap:9px;align-content:flex-start}.sortItem{width:57px;height:57px;cursor:grab}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}.prodCard{background:#fff;border:2px solid #f0d8e5;border-radius:22px;padding:15px}.prodVisual{height:115px;border-radius:18px;background:#fff5fa;display:grid;place-items:center;font-size:68px;position:relative;overflow:hidden}.pen{width:150px;height:24px;border-radius:14px;background:var(--pc,#ff82ad);position:relative;transform:rotate(-8deg);box-shadow:inset 0 3px #fff8}.pen:after{content:"";position:absolute;right:-18px;top:5px;border-left:20px solid #e6bd82;border-top:7px solid transparent;border-bottom:7px solid transparent}.scrunchie{width:75px;height:75px;border:18px solid var(--pc,#ff82ad);border-radius:50%;box-shadow:inset 0 0 0 5px #fff}.notes{width:85px;height:75px;background:var(--pc,#ffe76e);border-radius:8px;box-shadow:7px 7px 0 #ffd4e4}.sticker{font-size:65px}.keychain{font-size:65px}.squish{width:80px;height:80px;border-radius:35%;background:var(--pc,#9dd9ff);box-shadow:inset -8px -8px #6faad455}.colorBtns{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.swatch{width:34px;height:34px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 2px #decbd7}.swatch.selected{box-shadow:0 0 0 3px #8e6686}.choice{font-size:12px;margin-top:6px}.packArea{display:grid;grid-template-columns:1fr 320px;gap:18px}.box{height:390px;border-radius:20px;border:12px solid #c79670;background:#f4d4a7;box-shadow:inset 0 0 0 3px #fff8;position:relative;overflow:hidden}.box .inside{position:absolute;inset:18px;background:#fff8e9;border-radius:8px;padding:10px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:8px}.placed{width:78px;height:62px;background:#fff;border:2px solid #ead9df;border-radius:12px;display:grid;place-items:center;cursor:grab}.extras{display:grid;gap:10px}.extra{padding:12px;border:2px solid #efd9e5;border-radius:15px;background:#fff}.review{text-align:center}.stars{font-size:45px;color:#ffc94d}.tag{display:inline-block;background:#f4eaff;color:#8664a2;padding:6px 10px;border-radius:12px;margin:3px;font-weight:800}@media(max-width:700px){.customer{grid-template-columns:1fr;text-align:center}.avatar{margin:auto}.packArea{grid-template-columns:1fr}.hero h1{font-size:38px}.beadBox{height:300px}}
+</style>
+
+<style>
+.loose{transition:transform .08s,opacity .08s}
+.loose.caught{filter:brightness(1.12) drop-shadow(0 0 7px #fff)}
+.sortWrap{width:62px;height:62px;touch-action:none;user-select:none;position:absolute;display:grid;place-items:center}
+.sortWrap.moving{transform:scale(1.18);filter:drop-shadow(0 10px 8px #76546a44)}
+.sortBoard{overflow:hidden;touch-action:none}
+.packTray{min-height:105px;padding:12px;display:flex;gap:10px;flex-wrap:wrap;background:#fff7fb;border:2px dashed #e7bfd4;border-radius:18px;margin-bottom:15px}
+.packItem{width:88px;height:82px;border-radius:16px;background:#fff;border:2px solid #ead9e4;display:grid;place-items:center;touch-action:none;user-select:none;box-shadow:0 4px 10px #76546a18}
+.packItem span{font-size:34px}.packItem small{font-size:10px}.packItem.dragging{transform:scale(1.1);box-shadow:0 12px 25px #76546a44}
+.placed{width:82px;height:64px;touch-action:none}
+#toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#5d4b5f;color:#fff;padding:12px 18px;border-radius:16px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:5000;max-width:90%;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="top"><div class="logo">🥄 Mystery Scoop</div><div class="coins">🪙 <span id="coins">120</span></div></div>
+
+<section id="home" class="screen active"><div class="card hero">
+<div style="font-size:75px">🫧💗🥄</div><h1>Mystery Scoop</h1><p>Schep je mystery beads, ontdek je producten en maak elke bestelling helemaal van jou! ✨</p>
+<button class="btn" onclick="startOrder()">Nieuwe bestelling 💌</button>
+<div class="small" style="margin-top:18px">Geen tijdsdruk • rustig spelen • alles met je vinger</div></div></section>
+
+<section id="customer" class="screen"><div class="card">
+<h2>💌 Nieuwe klant</h2><div class="customer"><div class="avatar" id="avatar">🐰</div><div class="request">
+<div><strong id="custName">Luna</strong> wil graag een mystery bestelling!</div>
+<div class="pill">🥄 Scoops: <span id="scoops">5</span></div><div class="pill">🎨 Kleuren: <span id="colors">Roze + Paars</span></div><div class="pill">🌸 Thema: <span id="theme">Kawaii</span></div><div class="pill">💖 Favoriet: <span id="fav">Stationery</span></div>
+</div></div>
+<h3>✨ Welke beads kunnen er verschijnen?</h3><div class="beadLegend" id="legend"></div>
+<button class="btn" onclick="show('scoop')">Begin met scheppen 🥄</button>
+</div></section>
+
+<section id="scoop" class="screen"><div class="card">
+<div class="row" style="justify-content:space-between"><h2>🥄 Schep de beads</h2><div class="pill">Scoop <span id="scoopNo">1</span> / <span id="scoopTotal">5</span></div></div>
+<p class="small">Houd de scoop vast met je vinger en beweeg hem door de beads. Til daarna op om te scheppen.</p>
+<div id="beadBox" class="beadBox"><div id="scoop" class="scoop"><div class="cup"></div><div class="handle"></div></div></div>
+<div class="row" style="margin-top:12px"><button class="btn" onclick="collectScoop()">🥄 Scoop optillen</button><button class="btn secondary" onclick="resetBeads()">↻ Opnieuw verdelen</button></div>
+</div></section>
+
+<section id="sort" class="screen"><div class="card">
+<h2>🫧 Sorteer je beads <span class="pill" style="font-size:14px"><span id="sortCount">0</span> beads</span></h2><p>Pak iedere kraal met je vinger vast en sleep hem zelf naar een plek op het bord. Je kunt ze ook gewoon door elkaar laten liggen.</p><div id="sortBoard" class="sortBoard" style="position:relative"></div>
+<button class="btn" style="margin-top:15px" onclick="makeProducts()">✨ Beads omzetten in producten</button></div></section>
+
+<section id="products" class="screen"><div class="card">
+<h2>🎁 Jouw producten</h2><p>Elke bead wordt <b>één product</b>. Je ziet hier het product echt. Kies daarna voor ieder exemplaar afzonderlijk de kleur.</p>
+<div id="productList" class="products"></div>
+<button class="btn" style="margin-top:18px" onclick="goPack()">📦 Alles is klaar → Inpakken</button></div></section>
+
+<section id="pack" class="screen"><div class="card">
+<h2>📦 Pak de bestelling zelf in</h2><p>Sleep ieder product naar de doos en leg ze neer zoals jij wilt.</p>
+<div class="packArea"><div><h3>🛍️ Producten om in te pakken</h3><div id="packTray" class="packTray"></div><div class="box" id="box"><div class="inside" id="inside"></div></div></div>
+<div class="extras"><h3>🎀 Doos</h3><div class="row" id="boxColors"></div><h3>✨ Extra's</h3><div class="extra" onclick="toggleExtra(this)">💌 Thank-you kaart</div><div class="extra" onclick="toggleExtra(this)">🎀 Lint</div><div class="extra" onclick="toggleExtra(this)">🌸 Sticker</div><div class="extra" onclick="toggleExtra(this)">🧻 Zijdepapier</div><button class="btn" onclick="sendOrder()">💌 Bestelling versturen</button></div></div>
+</div></section>
+
+<section id="review" class="screen"><div class="card review">
+<div style="font-size:80px">🐰💗</div><h2 id="reviewTitle">Luna heeft je bestelling ontvangen!</h2><div class="stars" id="stars">★★★★★</div><p id="reviewText"></p><div id="reviewTags"></div><br><button class="btn" onclick="location.reload()">Nog een bestelling ✨</button>
+</div></section>
+</div>
+<script>
+const TYPES=[
+{id:'round',name:'Round Bead',rarity:'Common',color:'Groen',product:'Pen',icon:'',emoji:'🟢'},
+{id:'star',name:'Star Bead',rarity:'Common',color:'Geel',product:'Scrunchie',icon:'',emoji:'⭐'},
+{id:'heart',name:'Heart Bead',rarity:'Common',color:'Rood',product:'Sticky Notes',icon:'♥',emoji:'❤️'},
+{id:'flower',name:'Flower Bead',rarity:'Common',color:'Paars',product:'Sticker Pack',icon:'✿',emoji:'🌸'},
+{id:'butterfly',name:'Butterfly Bead',rarity:'Uncommon',color:'Blauw',product:'Keychain',icon:'🦋',emoji:'🦋'},
+{id:'diamond',name:'Diamond Bead',rarity:'Rare',color:'Blauw + wit',product:'Squishie',icon:'',emoji:'💎'},
+{id:'bow',name:'Bow Bead',rarity:'Epic',color:'Roze + glitter',product:'Extra Scoop',icon:'🎀',emoji:'🎀',effect:true},
+{id:'crown',name:'Crown Bead',rarity:'Legendary',color:'Goud + glitter',product:"Dealer's Choice",icon:'♛',emoji:'👑',effect:true}
+];
+const palette=[['Pink','#ff7eae'],['Paars','#a98ae8'],['Blauw','#70bde9'],['Geel','#ffd95c'],['Groen','#65c78c'],['Rood','#ef657b'],['Wit','#fff'],['Zwart','#55505c']];
+let state={scoops:5,collected:[],products:[],box:'#f4d4a7',currentScoop:0,bin:[],sortMode:'free',drag:null};
+
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+function startOrder(){
+ state={scoops:Math.floor(Math.random()*9)+2,collected:[],products:[],box:'#f4d4a7',currentScoop:0,bin:[],sortMode:'free',drag:null};
+ const names=[['Luna','🐰'],['Milo','🐻'],['Pip','🐣'],['Mimi','🐱'],['Nori','🐼']];
+ const n=names[Math.floor(Math.random()*names.length)];
+ document.getElementById('custName').textContent=n[0];document.getElementById('avatar').textContent=n[1];
+ document.getElementById('scoops').textContent=state.scoops;
+ document.getElementById('colors').textContent=['Roze + Paars','Blauw + Geel','Roze + Blauw','Paars + Wit'][Math.floor(Math.random()*4)];
+ document.getElementById('theme').textContent=['Kawaii','Pastel','Cute Animals','Dreamy'][Math.floor(Math.random()*4)];
+ document.getElementById('fav').textContent=['Stationery','Accessories','Kawaii'][Math.floor(Math.random()*3)];
+ buildLegend();show('customer');
+}
+function buildLegend(){
+ document.getElementById('legend').innerHTML=TYPES.map(t=>`
+ <div class="legend"><div class="bead ${t.id}">${t.icon||''}</div><b>${t.name}</b>
+ <div class="small">${t.rarity}</div><div>→ ${t.product}</div></div>`).join('')
+}
+function beadEl(t,cls=''){
+ const d=document.createElement('div'); d.className='bead '+t.id+' '+cls; d.dataset.type=t.id;
+ if(t.icon)d.innerHTML=t.icon; return d;
+}
+
+/* ---------- SCOOPING: actual finger movement + scoop catches beads ---------- */
+function createBin(){
+ const box=document.getElementById('beadBox'); box.querySelectorAll('.loose').forEach(x=>x.remove());
+ state.bin=[];
+ // 55 visible beads; rarity controls frequency.
+ for(let i=0;i<55;i++){
+   let r=Math.random(), idx=r<.58?0:r<.80?1:r<.91?2:r<.975?3:r<.992?4:r<.998?5:r<.999?6:7;
+   const t=TYPES[idx], id='b'+i;
+   state.bin.push({id,type:t.id,taken:false});
+   const w=document.createElement('div');
+   w.className='loose'; w.dataset.id=id;
+   w.style.left=(3+Math.random()*91)+'%'; w.style.top=(5+Math.random()*83)+'%';
+   w.appendChild(beadEl(t));
+   box.appendChild(w);
+ }
+ state.currentScoop=0;
+ document.getElementById('scoopNo').textContent=1;
+ document.getElementById('scoopTotal').textContent=state.scoops;
+ moveScoop(50,70);
+}
+function moveScoop(x,y){
+ const s=document.getElementById('scoop'); s.style.left=x+'%'; s.style.top=y+'%';
+}
+function scoopPosition(e){
+ const box=document.getElementById('beadBox'),r=box.getBoundingClientRect();
+ return {x:Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100)),y:Math.max(8,Math.min(88,(e.clientY-r.top)/r.height*100))};
+}
+let scoopDragging=false;
+const binEl=document.getElementById('beadBox');
+binEl.addEventListener('pointerdown',e=>{
+ if(e.target.closest('.loose')) return;
+ scoopDragging=true; binEl.setPointerCapture(e.pointerId); const p=scoopPosition(e); moveScoop(p.x,p.y); catchNearby();
+});
+binEl.addEventListener('pointermove',e=>{
+ if(!scoopDragging)return;
+ const p=scoopPosition(e); moveScoop(p.x,p.y); catchNearby();
+});
+binEl.addEventListener('pointerup',()=>scoopDragging=false);
+binEl.addEventListener('pointercancel',()=>scoopDragging=false);
+
+function catchNearby(){
+ const scoop=document.getElementById('scoop').getBoundingClientRect();
+ [...binEl.querySelectorAll('.loose:not(.caught)')].forEach(el=>{
+   const r=el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+   if(cx>scoop.left+8&&cx<scoop.right-8&&cy>scoop.top+8&&cy<scoop.bottom-8){
+     el.classList.add('caught');
+     el.style.transform='scale(.72) translateY(-8px)';
+     el.style.opacity='.72';
+   }
+ });
+}
+function liftScoop(){
+ const caught=[...binEl.querySelectorAll('.loose.caught')];
+ if(!caught.length){toast('Beweeg de scoop eerst door de beads 🥄💗');return}
+ caught.forEach(el=>{
+   const rec=state.bin.find(x=>x.id===el.dataset.id);
+   if(rec&&!rec.taken){rec.taken=true;state.collected.push(TYPES.find(t=>t.id===rec.type));}
+   el.remove();
+ });
+ state.currentScoop++;
+ if(state.currentScoop>=state.scoops){renderSort();show('sort');}
+ else {document.getElementById('scoopNo').textContent=state.currentScoop+1; moveScoop(50,70);}
+}
+function resetBeads(){createBin()}
+
+/* ---------- SORTING: pick up a bead and place it anywhere ---------- */
+function renderSort(){
+ const b=document.getElementById('sortBoard');b.innerHTML='';
+ state.collected.forEach((t,i)=>{
+   const wrap=document.createElement('div');wrap.className='sortWrap';wrap.dataset.i=i;
+   const x=beadEl(t,'sortItem'); x.title=t.name+' → '+t.product;
+   wrap.appendChild(x);b.appendChild(wrap);
+   makeTouchDraggable(wrap,b);
+ });
+ document.getElementById('sortCount').textContent=state.collected.length;
+}
+function makeTouchDraggable(el,area){
+ let moving=false,offsetX=0,offsetY=0;
+ el.addEventListener('pointerdown',e=>{
+   moving=true; el.setPointerCapture(e.pointerId);
+   const r=el.getBoundingClientRect();offsetX=e.clientX-r.left;offsetY=e.clientY-r.top;
+   el.classList.add('moving');el.style.position='fixed';el.style.zIndex=1000;
+ });
+ el.addEventListener('pointermove',e=>{
+   if(!moving)return;el.style.left=(e.clientX-offsetX)+'px';el.style.top=(e.clientY-offsetY)+'px';
+ });
+ el.addEventListener('pointerup',e=>{
+   if(!moving)return;moving=false;el.classList.remove('moving');
+   const ar=area.getBoundingClientRect(),x=Math.max(5,Math.min(ar.width-65,e.clientX-ar.left-28)),y=Math.max(5,Math.min(ar.height-65,e.clientY-ar.top-28));
+   el.style.position='absolute';el.style.left=x+'px';el.style.top=y+'px';el.style.zIndex='';
+ });
+}
+function sortBy(type){
+ const items=[...document.querySelectorAll('.sortWrap')];
+ items.forEach((el,i)=>{const t=state.collected[+el.dataset.i];el.style.display=(type==='all'||t.id===type)?'grid':'none'});
+}
+function makeProducts(){
+ state.products=[];
+ state.collected.forEach((t)=>{
+   if(t.effect)return;
+   state.products.push({type:t.id,name:t.product,color:palette[0][1]});
+ });
+ // Dealer's Choice: one product chosen from the normal product collection.
+ if(state.collected.some(t=>t.id==='crown'))state.products.push({type:'round',name:'Pen',color:'#ff7eae',dealer:true});
+ renderProducts();show('products');
+}
+
+/* ---------- PRODUCTS: actual visual updates ---------- */
+function productVisual(p){
+ const c=p.color;
+ if(p.name==='Pen')return `<div class="prodVisual"><div class="pen" style="--pc:${c}"></div></div>`;
+ if(p.name==='Scrunchie')return `<div class="prodVisual"><div class="scrunchie" style="--pc:${c}"></div></div>`;
+ if(p.name==='Sticky Notes')return `<div class="prodVisual"><div class="notes" style="--pc:${c}">♡</div></div>`;
+ if(p.name==='Sticker Pack')return `<div class="prodVisual"><div class="sticker">🌸⭐💗🦋</div></div>`;
+ if(p.name==='Keychain')return `<div class="prodVisual"><div class="keychain">🔑🧸</div></div>`;
+ if(p.name==='Squishie')return `<div class="prodVisual"><div class="squish" style="--pc:${c}">☺</div></div>`;
+ return `<div class="prodVisual">🎁</div>`;
+}
+function renderProducts(){
+ const el=document.getElementById('productList');
+ el.innerHTML=state.products.map((p,i)=>`
+ <div class="prodCard">
+ <div class="row" style="justify-content:space-between"><b>${i+1}. ${p.name}</b><span class="small">${p.dealer?'👑 Dealer’s Choice':''}</span></div>
+ ${productVisual(p)}
+ <div class="choice">🎨 Kies de kleur voor <b>dit ene exemplaar</b>:</div>
+ <div class="colorBtns">${palette.map(q=>`<button class="swatch ${p.color===q[1]?'selected':''}" title="${q[0]}" style="background:${q[1]}" onclick="setColor(${i},'${q[1]}')"></button>`).join('')}</div>
+ <div class="small chosen" id="chosen${i}">Gekozen: ${palette.find(x=>x[1]===p.color)[0]}</div>
+ </div>`).join('');
+}
+function setColor(i,c){state.products[i].color=c;renderProducts();}
+
+/* ---------- PACKING: real touch drag, reorder + visible items ---------- */
+function goPack(){renderBox();show('pack');}
+function itemIcon(p){return p.name==='Pen'?'🖊️':p.name==='Scrunchie'?'🎀':p.name==='Sticky Notes'?'🗒️':p.name==='Sticker Pack'?'🌸':p.name==='Keychain'?'🔑':'🧸'}
+function renderBox(){
+ const box=document.getElementById('box');box.style.background=state.box;
+ document.getElementById('boxColors').innerHTML=palette.slice(0,7).map(q=>`<button class="swatch ${state.box===q[1]?'selected':''}" style="background:${q[1]}" onclick="setBox('${q[1]}')"></button>`).join('');
+ const tray=document.getElementById('packTray');tray.innerHTML='';
+ state.products.forEach((p,i)=>{
+   const x=document.createElement('div');x.className='packItem';x.dataset.i=i;x.innerHTML=`<span>${itemIcon(p)}</span><small>${p.name}</small>`;
+   tray.appendChild(x);makePackDraggable(x);
+ });
+ document.getElementById('inside').innerHTML='';
+}
+function setBox(c){state.box=c;renderBox();}
+function makePackDraggable(el){
+ let dragging=false;
+ el.addEventListener('pointerdown',e=>{
+   dragging=true;el.setPointerCapture(e.pointerId);el.classList.add('dragging');
+   const r=el.getBoundingClientRect();el.dataset.ox=e.clientX-r.left;el.dataset.oy=e.clientY-r.top;
+ });
+ el.addEventListener('pointermove',e=>{
+   if(!dragging)return;
+   el.style.position='fixed';el.style.left=(e.clientX-Number(el.dataset.ox))+'px';el.style.top=(e.clientY-Number(el.dataset.oy))+'px';el.style.zIndex=3000;
+ });
+ el.addEventListener('pointerup',e=>{
+   if(!dragging)return;dragging=false;el.classList.remove('dragging');
+   const box=document.getElementById('box').getBoundingClientRect();
+   if(e.clientX>box.left&&e.clientX<box.right&&e.clientY>box.top&&e.clientY<box.bottom){
+      placeInBox(+el.dataset.i,e.clientX-box.left,e.clientY-box.top);
+      el.remove();
+   }else{el.style.position='';el.style.left='';el.style.top='';el.style.zIndex='';}
+ });
+}
+function placeInBox(i,x,y){
+ const p=state.products[i], inside=document.getElementById('inside');
+ const item=document.createElement('div');item.className='placed';item.innerHTML=`<div style="font-size:31px">${itemIcon(p)}</div><small>${p.name}</small>`;
+ item.style.position='absolute';item.style.left=Math.max(5,Math.min(inside.clientWidth-92,x-45))+'px';item.style.top=Math.max(5,Math.min(inside.clientHeight-70,y-35))+'px';
+ inside.appendChild(item);
+}
+function toggleExtra(x){x.classList.toggle('selected');x.style.background=x.classList.contains('selected')?'#ffe1ee':'#fff'}
+function sendOrder(){
+ const total=state.products.length,packed=document.querySelectorAll('#inside .placed').length;
+ if(packed<total){toast(`Je hebt nog ${total-packed} product${total-packed===1?'':'en'} buiten de doos 📦`);return}
+ const score=4+Math.floor(Math.random()*2);
+ document.getElementById('stars').textContent='★'.repeat(score)+'☆'.repeat(5-score);
+ document.getElementById('reviewText').textContent=score===5?'“Alles was zó schattig en precies mijn stijl! 💕”':'“Dankjewel! Ik vond vooral de kleuren heel leuk. 🌸”';
+ document.getElementById('reviewTags').innerHTML='<span class="tag">🎨 Kleuren</span><span class="tag">💗 Kawaii</span><span class="tag">📦 Mooie verpakking</span>';
+ show('review');
+}
+function toast(msg){
+ let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';document.body.appendChild(t)}
+ t.textContent=msg;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2200);
+}
+buildLegend();show('home');
+</script>
+</body>
+</html>
